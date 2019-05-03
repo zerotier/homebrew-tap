@@ -7,7 +7,7 @@ class Libzt < Formula
 
   stable do
     version "1.3.0"
-    url "https://github.com/zerotier/libzt.git", :branch => "master", :revision => "2a377146d6124bb004b9aa263c47f7df2366e7ea"
+    url "https://github.com/zerotier/libzt.git", :branch => "master", :revision => "3d1159882117278fcb5fabb623bd62175b6c7e6c"
   end
 
   head do
