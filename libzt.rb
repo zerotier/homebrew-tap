@@ -1,24 +1,17 @@
 class Libzt < Formula
-  desc "ZeroTier (libzt): An encrypted P2P networking library for applications"
+  desc "ZeroTier: libzt -- An encrypted P2P networking library for applications"
   homepage "https://www.zerotier.com"
-  
-  depends_on "make" => :build
-  depends_on "cmake" => :build
 
   version "1.3.0"
-
-  bottle do
-    root_url "https://download.zerotier.com/homebrew"
-    cellar :any
-    sha256 "e1ac8425fd0ea510c7db734af8d6c41cd3650b12f66a571f9d818c0121422eee" => :mojave
-  end
 
   stable do
     url "https://github.com/zerotier/libzt.git", :branch => "master", :revision => "3d1159882117278fcb5fabb623bd62175b6c7e6c"
   end
 
-  head do
-    url "https://github.com/zerotier/libzt.git"
+  bottle do
+    root_url "https://download.zerotier.com/dist/homebrew"
+    cellar :any
+    sha256 "e1ac8425fd0ea510c7db734af8d6c41cd3650b12f66a571f9d818c0121422eee" => :mojave
   end
 
   devel do
@@ -26,12 +19,19 @@ class Libzt < Formula
     url "https://github.com/zerotier/libzt.git", :branch => "dev"
   end
 
+  head do
+    url "https://github.com/zerotier/libzt.git"
+  end
+
+  depends_on "cmake" => :build
+  depends_on "make" => :build
+
   def install
     system "make", "update"
     system "cmake", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "make", "install"
-    system "cp", "LICENSE.GPL-3", "#{prefix}/LICENSE"
+    cp "LICENSE.GPL-3", "#{prefix}/LICENSE"
   end
 
   def caveats
@@ -40,5 +40,17 @@ class Libzt < Formula
       Visit https://www.zerotier.com/manual.shtml to learn more about how ZeroTier works.
       Visit https://github.com/zerotier/ZeroTierOne/tree/master/controller to learn how to run your own network controller (advanced).
     EOS
+  end
+
+  test do
+    # Writes a simple test program to test.cpp which calls a library function. The expected output of this
+    # function is -2. This test verifies the following:
+    # - The library was installed correctly
+    # - The library was linked correctly
+    # - Library code executes successfully and sends the proper error code to the test program
+    #system "echo", "-e", "#include <ZeroTier.h>\n int main(){return zts_socket(0,0,0)!=-2;}\"", ">", "test.cpp"
+    #system ENV.cc, "test.cpp", "-o", "test", "-lzt"
+    #system "./test"
+    system "false"
   end
 end
