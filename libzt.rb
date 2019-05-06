@@ -6,7 +6,7 @@ class Libzt < Formula
   depends_on "cmake" => :build
 
   bottle do
-    root_url "https://download.zerotier.com/homebrew/libzt--1.3.0.mojave.bottle.tar.gz"
+    root_url "https://download.zerotier.com/homebrew/"
     cellar :any
     sha256 "e1ac8425fd0ea510c7db734af8d6c41cd3650b12f66a571f9d818c0121422eee" => :mojave
   end
@@ -30,7 +30,7 @@ class Libzt < Formula
     system "cmake", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "make", "install"
-    system "cp", "LICENSE*", "#{prefix}/LICENSE"
+    system "cp", "LICENSE.GPL-3", "#{prefix}/LICENSE"
   end
 
   def caveats
