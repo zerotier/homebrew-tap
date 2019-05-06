@@ -48,9 +48,11 @@ class Libzt < Formula
     # - The library was installed correctly
     # - The library was linked correctly
     # - Library code executes successfully and sends the proper error code to the test program
-    #system "echo", "-e", "#include <ZeroTier.h>\n int main(){return zts_socket(0,0,0)!=-2;}\"", ">", "test.cpp"
-    #system ENV.cc, "test.cpp", "-o", "test", "-lzt"
-    #system "./test"
-    system "false"
+    (testpath/"test.cpp").write <<-EOS
+      #include<cstdlib>\n#include<ZeroTier.h>\nint main(){return zts_socket(0,0,0)!=-2;}
+    EOS
+
+    system ENV.cc, "-v", "test.cpp", "-o", "test", "-L#{prefix}/lib/Release", "-lzt"
+    system "./test"
   end
 end
