@@ -1,18 +1,19 @@
 class Libzt < Formula
-  desc "ZeroTier (libzt): An encrypted P2P networking layer for applications"
+  desc "ZeroTier (libzt): An encrypted P2P networking library for applications"
   homepage "https://www.zerotier.com"
   
   depends_on "make" => :build
   depends_on "cmake" => :build
 
+  version "1.3.0"
+
   bottle do
-    root_url "https://download.zerotier.com/homebrew/"
+    root_url "https://download.zerotier.com/homebrew"
     cellar :any
     sha256 "e1ac8425fd0ea510c7db734af8d6c41cd3650b12f66a571f9d818c0121422eee" => :mojave
   end
 
   stable do
-    version "1.3.0"
     url "https://github.com/zerotier/libzt.git", :branch => "master", :revision => "3d1159882117278fcb5fabb623bd62175b6c7e6c"
   end
 
