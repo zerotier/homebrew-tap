@@ -34,7 +34,7 @@ With the following commands, you can install the latest version of each product:
 
 ```sh
 brew install zerotier/tap/libzt
-brew install zerotier/tap/zerotier-one
+brew install zerotier/tap/zeronsd
 ```
 
 ## Why should I install packages from this tap?
