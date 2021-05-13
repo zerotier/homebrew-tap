@@ -2,8 +2,8 @@ class Libzt < Formula
   desc "Encrypted P2P socket networking library"
   homepage "https://www.zerotier.com"
   url "https://github.com/zerotier/libzt.git",
-      tag:      "1.4.0",
-      revision: "613c7e8f91cf83b993524a8f4ca9b883937331c2"
+      tag:      "1.4.1",
+      revision: "ab3d3b20790754d235d8420acc117fe7cd0856a4"
   license "BUSL-1.1"
 
   depends_on "cmake" => :build
