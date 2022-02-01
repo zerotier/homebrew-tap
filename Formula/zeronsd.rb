@@ -5,7 +5,7 @@ class Zeronsd < Formula
   version @@version
   homepage "https://www.zerotier.com"
   url "https://github.com/zerotier/zeronsd.git",
-    tag:      "v#{@@version}",
+    #tag:      "v#{@@version}",
     revision: "61e163fed18cd8f7f0530feff5d0c581574ebcce"
   license "BSD-3-Clause"
 
