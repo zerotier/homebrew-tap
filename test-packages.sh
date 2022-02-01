@@ -15,7 +15,7 @@ fi
 
 case "$(uname -s)" in
   Linux)
-    docker run -it -v ${PWD}:/taps linuxbrew/brew bash -c "$cmdline"
+    docker run -u $(id -u):$(id -g) -it -v ${PWD}:/taps linuxbrew/brew bash -c "$cmdline"
     ;;
   Darwin)
     bash -c "$cmdline"
