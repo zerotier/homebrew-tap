@@ -1,12 +1,12 @@
 class Zeronsd < Formula
-  @@version = "0.3.1"
+  @@version = "0.4.0"
 
   desc "Name service for ZeroTier Central"
   version @@version
   homepage "https://www.zerotier.com"
   url "https://github.com/zerotier/zeronsd.git",
     tag:      "v#{@@version}",
-    revision: "693920d502f45923cfbe6b46688c71d726e890aa"
+    revision: "8d66068caf10d5471719203577610704f116577a"
   license "BSD-3-Clause"
 
   depends_on "pkg-config" => :build
