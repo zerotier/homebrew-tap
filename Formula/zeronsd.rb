@@ -10,7 +10,8 @@ class Zeronsd < Formula
   license "BSD-3-Clause"
 
   depends_on "pkg-config" => :build
-  depends_on "rust"
+  depends_on "rust" => :build
+  depends_on "rustfmt" => :build
   depends_on "openssl"
 
   def install
