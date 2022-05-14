@@ -15,6 +15,7 @@ class Zeronsd < Formula
   depends_on "openssl"
 
   def install
+    ENV["RUSTFMT"] = "rustfmt"
     system "cargo", "build", "--release", "--bin", "zeronsd"
     bin.install "target/release/zeronsd"
   end
